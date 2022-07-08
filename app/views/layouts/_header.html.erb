@@ -1,0 +1,10 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+<div class="container">
+    <%= link_to "logout", destroy_user_session_path, method: :delete %>
+    <nav>
+        <ul class="nav navbar-nav navbar-right">
+            <%= link_to "home", root_path %>
+        </ul>
+    </nav>
+</div>
+</header>
