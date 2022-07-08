@@ -12,6 +12,15 @@
     <%= @post.author%>  
 </div>
 
+<%= form_with model: post.comments.build do |f| %>
+    <div>
+        <%= f.label :body %>
+        <%= f.text_area :body %>
+    </div>
+    <div>
+        <%= f.submit %>
+    <div>        
+
 
 <%= link_to 'Back', posts_path%>
 

@@ -14,14 +14,32 @@ class PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
         if @post.save
-            rederect_to post_path(@post)
+            redirect_to post_path(@post)
         else
             render :new
         end
     end
 
-    # def delete
-        
-    # end
+    def edit
+        @post = Post.find(params[:id])
+    end
+
+    def update
+        @post = Post.finde(params[:id])
+        if @post.update(post_params) 
+            redirect_to post_path(@post)
+        else
+            render :edit
+        end
+    end
+
+
+
+    private
+
+
+     def post_params
+        params.require(:post).permit(:title, :body, :author)
+     end    
 
 end
