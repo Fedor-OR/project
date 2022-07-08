@@ -1,4 +1,5 @@
 <h1>Post</h1>
+
 <div>
     <%= @post.title%>
 </div>
@@ -11,4 +12,7 @@
     <%= @post.author%>  
 </div>
 
-<%= link_to 'Back' to: root_path%>
+
+<%= link_to 'Back', posts_path%>
+
+<%= link_to 'Delete', to: '#'%>
