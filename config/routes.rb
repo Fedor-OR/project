@@ -5,9 +5,8 @@ Rails.application.routes.draw do
 
   get '/posts', to: 'posts#index'
   resources :posts do
+    resources :comments, only: [:create]
   end
-
-
   
   # resourse :posts, only: [:index, :show]
 

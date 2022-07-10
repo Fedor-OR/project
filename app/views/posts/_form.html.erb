@@ -1,0 +1,19 @@
+<%= form_with model: post, url: post_path, method: :post  do |f| %>
+ <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+   <p>
+    <%= f.label :body %><br>
+    <%= f.text_field :body %>
+  </p>
+
+   <p>
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </p>
+
+    <%= f.submit :edit%>
+<%end%>
+
