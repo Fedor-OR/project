@@ -9,22 +9,12 @@
 </div>
 
  <div>
-    <%= @post.author%>  
-</div>
+    <%= @post.author %>  
+</div> 
 
 
-<h1>Comments</h1>
-    <ul>
-        <% @post.comments.each do |comment| %>
-            <li>
-                <%= comment.body%>
-            </li>
-        <%end%>
-    </ul>  
-</h1>  
 
-
-<%= form_with model: @post.comment.build, url: [@post, @post.comments.build] do |f| %>
+<%= form_with model: @post.comments.build, url: [@post, @post.comments.build] do |f| %>
     <div>
         <%= f.label :body %>
         <%= f.text_area :body %>

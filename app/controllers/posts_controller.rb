@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     end
     def create
         @post = Post.new(post_params)
+        @post.author = current_user.name
         if @post.save
             redirect_to post_path(@post)
         else
@@ -25,7 +26,7 @@ class PostsController < ApplicationController
     end
 
     def update
-        @post = Post.finde(params[:id])
+        @post = Post.find(params[:id])
         if @post.update(post_params) 
             redirect_to post_path(@post)
         else
@@ -37,9 +38,8 @@ class PostsController < ApplicationController
 
     private
 
-
      def post_params
-        params.require(:post).permit(:title, :body, :author[current_user]) #юзер не intejer
+        params.require(:post).permit(:title, :body, :comments)
      end    
 
 end
