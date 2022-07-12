@@ -12,8 +12,9 @@ class PostsController < ApplicationController
         @post = Post.new
     end
     def create
-        @post = Post.new(post_params)
+        @post = Post.new(post_params) #костыли
         @post.author = current_user.name
+        @post.user_id = current_user.id
         if @post.save
             redirect_to post_path(@post)
         else
@@ -34,6 +35,10 @@ class PostsController < ApplicationController
         end
     end
 
+    def destroy
+        @post = Post.destroy(params[:id])
+        redirect_to root_path
+    end
 
 
     private

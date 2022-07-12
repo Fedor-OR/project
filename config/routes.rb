@@ -5,15 +5,10 @@ Rails.application.routes.draw do
 
   get '/posts', to: 'posts#index'
   resources :posts do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :edit] #destroy
   end
   
-  # resourse :posts, only: [:index, :show]
-
-
   get '/about', to: 'static_pages#about'
-
-  
 
 
 end

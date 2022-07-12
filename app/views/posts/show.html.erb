@@ -12,6 +12,13 @@
     <%= @post.author %>  
 </div> 
 
+<% @post.comments.each do |comment|%>
+    <li>
+      <%= comment.user.name%>
+      <%= comment.body%>
+      <%= link_to 'Edit', edit_post_comment_path(comment) %>
+    </li>
+  <%end%>
 
 
 <%= form_with model: @post.comments.build, url: [@post, @post.comments.build] do |f| %>
@@ -21,15 +28,11 @@
     </div>
 
     <div>
-        <%= f.label :author %>
-        <%= f.text_field :author %>
-    </div>
-
-    <div>
         <%= f.submit %>
-    <div>        
-
+    </div> 
+    
+ 
 <% end %>
 <%= link_to 'Back', posts_path%>
 
-<%= link_to 'Delete', to: '#'%>
+<%= link_to 'Delete', post_path(@post), method: :delete %>
