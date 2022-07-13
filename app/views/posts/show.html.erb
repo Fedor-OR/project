@@ -14,9 +14,13 @@
 
 <% @post.comments.each do |comment|%>
     <li>
+    <% params = {:post_id => comment.post_id, :id => comment.id }%>
       <%= comment.user.name%>
       <%= comment.body%>
-      <%= link_to 'Edit', edit_post_comment_path(comment) %>
+      <%if current_user.name == @post.author%>
+      <%= link_to 'Update', edit_post_comment_path(params)%>
+      <%= link_to 'Delete', post_comment_path(params), method: :delete %>
+      <%end%>
     </li>
   <%end%>
 
@@ -31,8 +35,8 @@
         <%= f.submit %>
     </div> 
     
- 
 <% end %>
 <%= link_to 'Back', posts_path%>
-
+<%if current_user.name == @post.author%>
 <%= link_to 'Delete', post_path(@post), method: :delete %>
+<% end %>
