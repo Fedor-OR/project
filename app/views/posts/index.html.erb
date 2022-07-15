@@ -5,6 +5,7 @@
     <thead>
         <tr>
             <th>Id</th>
+            <th>Like</th>
             <th>Title</th>
             <th>Body</th>
             <th>Author</th>
@@ -14,11 +15,13 @@
         </tr>
     </thead>
 
+
     <tbody>
         <% @posts.each do |post| %>
         <% @user = User.find(post.user_id)%>
             <tr>
                 <td><%= post.id%></td>
+                <td><%=post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></td>
                 <td><%= post.title%></td>
                 <td><%= post.body%></td> 
                 <td><%= link_to post.author, user_path(@user), method: :get%></td>
