@@ -4,6 +4,13 @@
     <%= @post.title%>
 </div>
 
+<div>
+  <% if @post.photo.present?%>
+    <%= image_tag(@post.photo, height: 1200, width: 1000, class: "rounded-circle")%>
+  <%end%>
+</div>
+
+
  <div>
     <%= @post.body%>
 </div>
