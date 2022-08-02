@@ -8,9 +8,9 @@
  <div class="center jumbotron">
  <h1>Welcome <%= current_user.name %> </h1>
  <% if current_user.avatar.present? %> 
- <%= image_tag current_user.avatar %>
+ <%= image_tag current_user.avatar, height: 200, width: 200 %>
  <%else%>
- <%= image_tag "enot.jpg", height: 80, width: 80%>
+ <%= image_tag "person.jpg", height: 100, width: 100%>
  <%end%>
   
  

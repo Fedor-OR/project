@@ -1,0 +1,9 @@
+<h1>Following<h1>
+<h2><%= @title %></h2>
+
+<ol>
+  <% @follows.each do |follow| %> <%#те, на кого подписан пользователь%>
+       <li><%=link_to follow.name, follow%></li>
+  <%end%>
+</ol>
+
