@@ -1,8 +1,8 @@
-<h1>Followers<h1>
-<h2><%= @title %></h2>
+<h1>Ваши подписчики<h1>
+
 
 <ol>
   <% @follows.each do |follower| %> <%#те, кто подписан на пользователя%>
-        <li><%= link_to follower.name, follower%></li>
+    <li><%= link_to follower.name, follower%></li>
   <%end%>
 </ol>

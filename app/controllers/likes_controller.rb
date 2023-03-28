@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  
     def create
         @post = Post.find(params[:post_id])
         if already_liked?
@@ -25,8 +26,7 @@ class LikesController < ApplicationController
         redirect_to post_path(@post)
       end
 
-
-
+      
       private
 
       def already_liked?
